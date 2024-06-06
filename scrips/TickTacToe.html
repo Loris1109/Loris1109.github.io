@@ -1,0 +1,191 @@
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="author" content="Tick Tac Toe">
+    <title>Lorenz' Portfolio</title>
+</head>
+<style>
+  td {
+    border: 1px solid black;
+    width:100px;
+    height:100px;
+    z-index:0;
+  }
+  img{
+    width: 100px;
+    height: 100px;
+  }
+  td img{
+    display: block;
+    margin-left:auto;
+    margin-right: auto;
+        z-index:10;
+  }
+  tr { 
+    width: 300px;
+    height: 100px;
+    border: 1px solid black; 
+  }
+ 
+  table{
+    width: 300px;
+    border: 1px solid black;
+    border-collapse: collapse;
+  }
+
+</style> 
+<body>
+    <header>
+        <h1>Tick Tac Toe</h1>
+    </header>
+    <main>
+        <button id="startButton" type="button" onclick="startGame()">Start Game</button>
+        <h2 id="announcment"></h2>
+        <table>
+	        <tr>
+            <td onclick="setSymbol(0)" id="0"></td>
+            <td onclick="setSymbol(1)" id="1"></td>
+            <td onclick="setSymbol(2)" id="2"></td>
+            </tr>
+            <tr>
+            <td onclick="setSymbol(3)" id="3"></td>
+            <td onclick="setSymbol(4)" id="4"></td>
+            <td onclick="setSymbol(5)" id="5"></td>
+            </tr>
+            <tr>
+            <td onclick="setSymbol(6)" id="6"></td>
+            <td onclick="setSymbol(7)" id="7"></td>
+            <td onclick="setSymbol(8)" id="8"></td>
+            </tr>
+        </table>
+        <a href="https://www.flaticon.com/free-icons/circle" title="circle icons"></a>O icons created by Dave Gandy - Flaticon </a>
+        <a href="https://www.flaticon.com/free-icons/cancel" title="cancel icons">X icons created by Dave Gandy - Flaticon</a>
+    </main>
+    <script>
+        var curPlayer;
+        var boxInfo = [];
+        var boxesFilled = 0;
+        var gameStarted = false;
+        function startGame()
+        {
+          for(var i=0; i<=8; i++)
+                document.getElementById(i).innerHTML = "";
+          startButton.disabled = true;
+          gameStarted = true;
+          curPlayer = "PlayerA";
+            document.getElementById("announcment").innerText = "Player A zieht";
+        }
+        
+        function setSymbol(boxId)
+        {
+          if(gameStarted == true)
+            {
+                if(curPlayer == "PlayerA" && boxInfo[boxId] == null)
+              {
+                  document.getElementById(boxId).innerHTML = "<img src='/images/X.png'>";
+                    boxInfo[boxId] = "X";
+                    boxesFilled++;
+                    document.getElementById("announcment").innerText = "Player B zieht";
+                    checkGameState();
+                    curPlayer = "PlayerB";
+                    
+              }
+              else if(curPlayer == "PlayerB" && boxInfo[boxId] == null)
+              {
+                  document.getElementById(boxId).innerHTML = "<img src='/images/O.png'>";
+                    boxInfo[boxId] = "O";
+                    boxesFilled++;
+                  document.getElementById("announcment").innerText = "Player A zieht";
+                    checkGameState();
+                    curPlayer = "PlayerA";
+                    
+              }
+            }
+          
+          function checkGameState()
+          {
+            var placedX = [];
+            var placedO = [];
+            console.log(boxesFilled);
+            
+              if(curPlayer == "PlayerA")
+              {
+                  for(var i=0; i<boxInfo.length; i++)
+                  {
+                      if(boxInfo[i] == "X")
+                      {
+                            placedX.push(i);
+                          checkRow(placedX);
+                            checkCollum(placedX);
+                            checkDiagonal(placedX);
+                      }
+                  }
+              }
+                else if(curPlayer == "PlayerB")
+              {
+                  for(var k=0; k<boxInfo.length; k++)
+                  {
+                      if(boxInfo[k] == "O")
+                      {
+                            placedO.push(k);
+                          checkRow(placedO);
+                            checkCollum(placedO);
+                            checkDiagonal(placedO);
+                      }
+                  }
+              }
+            if(boxesFilled == 9)
+              gameEnd("Tie");
+              
+          }
+          
+          function checkRow(placedSymbols)
+          {
+            var row1 = placedSymbols.includes(0) && placedSymbols.includes(1) && placedSymbols.includes(2);
+            var row2 = placedSymbols.includes(3) && placedSymbols.includes(4) && placedSymbols.includes(5);
+            var row3 = placedSymbols.includes(6) && placedSymbols.includes(7) && placedSymbols.includes(8);
+            if(row1 || row2 || row3)
+              gameEnd(curPlayer);
+          }
+          
+          function checkCollum(placedSymbols)
+          {
+              var col1 = placedSymbols.includes(0) && placedSymbols.includes(3) && placedSymbols.includes(6);
+                var col2 = placedSymbols.includes(1) && placedSymbols.includes(4) && placedSymbols.includes(7);
+                var col3 = placedSymbols.includes(2) && placedSymbols.includes(5) && placedSymbols.includes(8);
+                if(col1 || col2 || col3)
+                  gameEnd(curPlayer);
+          }
+          
+          function checkDiagonal(placedSymbols)
+          {
+              var dia1 = placedSymbols.includes(0) && placedSymbols.includes(4) && placedSymbols.includes(8);
+                var dia2 = placedSymbols.includes(2) && placedSymbols.includes(4) && placedSymbols.includes(6);
+                if(dia1 || dia2)
+                  gameEnd(curPlayer);
+          }
+            
+          function gameEnd(playerWon)
+          {
+            if(playerWon != "Tie")
+            {
+                document.getElementById("announcment").innerText = playerWon + " has Won";
+            }
+            else
+            {
+                document.getElementById("announcment").innerText = playerWon;
+            }
+                gameStarted = false;
+                boxesFilled = 0;
+                boxInfo = [];
+                startButton.disabled = false;
+          }
+            
+            
+        }
+        
+      </script>
+</body>
+</html>
