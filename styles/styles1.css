@@ -1,0 +1,77 @@
+
+*
+{
+    background-color: var(--b-color);
+}
+:root
+{
+    --main-color:rgb(54,48,98);
+    --secondary-color: rgb(129,143,180);
+    --b-color: rgb(245,232,199);
+    font-family: sans-serif;
+    line-height: 1.3;
+}
+
+#quiz *, form, #quiz
+{
+    background: var(--main-color);
+    color: var(--b-color);
+}
+
+.Ueberschrift
+{
+    color: var(--secondary-color);
+}
+
+h1
+{
+    font-size: 1.5rem;
+    text-decoration:underline;
+}
+
+h2
+{
+    font-size: 1.3rem;
+}
+
+h3, article, nav
+{
+    font-size: 1.2rem; 
+}
+
+th
+{
+    color: rgb(67, 85, 133);
+}
+
+table
+{
+    border: 1px solid;
+}
+
+p, li, a, tbody
+{
+    color: var(--main-color);
+    max-width: 60ch;
+}
+a[href^="https"]
+{
+    text-decoration: underline;
+}
+a
+{
+    text-decoration: none;
+    font-style: italic;
+}
+a:hover
+{
+    background: var(--main-color);
+    color: var(--b-color);
+}
+
+::selection
+{
+    background: var(--main-color);
+    color: var(--b-color);
+}
+

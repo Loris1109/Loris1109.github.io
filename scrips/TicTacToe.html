@@ -3,42 +3,14 @@
 <html lang="en">
 <head>
     <meta charset="UTF-8">
-    <meta name="author" content="Tick Tac Toe">
+    <meta name="author" content="Tic Tac Toe">
+    <link rel="stylesheet" href="/styles/stylesTicTacToe.css">
     <title>Lorenz' Portfolio</title>
 </head>
-<style>
-  td {
-    border: 1px solid black;
-    width:100px;
-    height:100px;
-    z-index:0;
-  }
-  img{
-    width: 100px;
-    height: 100px;
-  }
-  td img{
-    display: block;
-    margin-left:auto;
-    margin-right: auto;
-        z-index:10;
-  }
-  tr { 
-    width: 300px;
-    height: 100px;
-    border: 1px solid black; 
-  }
- 
-  table{
-    width: 300px;
-    border: 1px solid black;
-    border-collapse: collapse;
-  }
 
-</style> 
 <body>
     <header>
-        <h1>Tick Tac Toe</h1>
+        <h1>Tic Tac Toe</h1>
     </header>
     <main>
         <button id="startButton" type="button" onclick="startGame()">Start Game</button>
@@ -60,9 +32,11 @@
             <td onclick="setSymbol(8)" id="8"></td>
             </tr>
         </table>
-        <a href="https://www.flaticon.com/free-icons/circle" title="circle icons"></a>O icons created by Dave Gandy - Flaticon </a>
-        <a href="https://www.flaticon.com/free-icons/cancel" title="cancel icons">X icons created by Dave Gandy - Flaticon</a>
     </main>
+    <footer>
+      <p><a href="https://www.flaticon.com/free-icons/circle" title="circle icons">O icons created by Dave Gandy - Flaticon</a></p>
+      <p><a href="https://www.flaticon.com/free-icons/cancel" title="cancel icons">X icons created by Dave Gandy - Flaticon</a></p>
+    </footer>
     <script>
         var curPlayer;
         var boxInfo = [];
