@@ -328,6 +328,21 @@ img {
         font-size: 22px;
         font-weight: 500;
     }
+
+    .project-description-holder
+    {
+        transform: translate3d(0px,0px,0px);
+    }
+
+    .project-name-holder
+    {
+        transform: translate3d(0px,0px,0px);
+    }
+
+    .overlay-image
+    {
+        opacity: 0.6;
+    }
 }
 
 @media screen and (max-width: 491px)
