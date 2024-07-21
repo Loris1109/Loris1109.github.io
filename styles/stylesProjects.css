@@ -197,13 +197,15 @@ img {
 
 .overlay-image {
     z-index: 1;
-    opacity: .6;
+    opacity: 0;
     background-image: linear-gradient(#000, rgba(0, 0, 0, 0) 20%, rgba(0, 0, 0, 0) 80%, #000);
     position: absolute;
     top: 0%;
     bottom: 0%;
     left: 0%;
     right: 0%;
+
+    transition: (.4s);
 }
 
 .project-name-holder {
@@ -238,6 +240,11 @@ img {
 .project-item:hover .project-thumbnail
 {
     transform: scale3d(1.1, 1.1, 1);
+}
+
+.project-item:hover .overlay-image
+{
+    opacity: 0.6;
 }
 
 @media screen and (min-width: 1440px)

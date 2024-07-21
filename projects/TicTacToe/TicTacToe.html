@@ -4,7 +4,7 @@
 <head>
     <meta charset="UTF-8">
     <meta name="author" content="Tic Tac Toe">
-    <link rel="stylesheet" href="/styles/stylesTicTacToe.css">
+    <link rel="stylesheet" href="/Loris1109.github.io/projects/TicTacToe/stylesTicTacToe.css">
     <title>Lorenz' Portfolio</title>
 </head>
 
@@ -32,6 +32,7 @@
             <td onclick="setSymbol(8)" id="8"></td>
             </tr>
         </table>
+        <a href="/Loris1109.github.io/index.html">back to portfolio</a>
     </main>
     <footer>
       <p><a href="https://www.flaticon.com/free-icons/circle" title="circle icons">O icons created by Dave Gandy - Flaticon</a></p>
@@ -58,7 +59,7 @@
             {
                 if(curPlayer == "PlayerA" && boxInfo[boxId] == null)
               {
-                  document.getElementById(boxId).innerHTML = "<img src='/images/X.png'>";
+                  document.getElementById(boxId).innerHTML = "<img src='img/X.png'>";
                     boxInfo[boxId] = "X";
                     boxesFilled++;
                     document.getElementById("announcment").innerText = "Player B zieht";
@@ -68,7 +69,7 @@
               }
               else if(curPlayer == "PlayerB" && boxInfo[boxId] == null)
               {
-                  document.getElementById(boxId).innerHTML = "<img src='/images/O.png'>";
+                  document.getElementById(boxId).innerHTML = "<img src='img/O.png'>";
                     boxInfo[boxId] = "O";
                     boxesFilled++;
                   document.getElementById("announcment").innerText = "Player A zieht";
