@@ -74,11 +74,20 @@ h1
     font-weight: 500;
 
 }
-video {
+.video-container
+{
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
 
+video {
+    display: block;
+    margin: auto;
     width: 100%;
     max-height: auto;
     object-fit: contain;
+
 }
 
 @media screen and (max-width: 767px)
