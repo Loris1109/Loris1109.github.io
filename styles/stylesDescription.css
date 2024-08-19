@@ -75,8 +75,9 @@ h1
 
 }
 video {
-    width: auto;
-    max-height: 100%;
+
+    width: 100%;
+    max-height: auto;
     object-fit: contain;
 }
 
