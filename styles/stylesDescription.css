@@ -82,6 +82,16 @@ video {
 
 }
 
+img{
+    display: block;
+    margin-left: auto;
+    margin-right: auto;
+    width: 50%;
+    max-height: auto;
+    object-fit: contain;
+    
+}
+
 @media screen and (max-width: 767px)
 {
     p {
